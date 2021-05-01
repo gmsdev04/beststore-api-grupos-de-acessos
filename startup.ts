@@ -6,11 +6,11 @@ import { InversifyExpressServer, TYPE } from 'inversify-express-utils';
 import { Application } from "express";
 
 import Database from  './configuration/database'
-import IAcessosRepository from './repository/IAcessosRepository'
-import AcessosRepositoryMongoDb from './repository/impl/acessosRepositoryMongoDb'
-import AcessosServices from './services/acessosService'
+import GrupoDeAcessosServices from './services/grupoDeAcessosService'
+import ILojasRepository from "./repository/ILojasRepository";
+import LojasRepositoryMongoDb from "./repository/impl/lojasRepositoryMongoDb";
 
-require('./controller/acessosController')
+require('./controller/gruposDeAcessosController')
 
 
 class StartUp{
@@ -36,8 +36,8 @@ class StartUp{
     }
 
     configureDependencyInjection(){
-        this.container.bind<IAcessosRepository>('IAcessosRepository').to(AcessosRepositoryMongoDb);
-        this.container.bind<AcessosServices>('AcessosServices').to(AcessosServices);
+        this.container.bind<ILojasRepository>('ILojasRepository').to(LojasRepositoryMongoDb);
+        this.container.bind<GrupoDeAcessosServices>('GruposDeAcessosServices').to(GrupoDeAcessosServices);
     }
 
     enableCors(app : Application){

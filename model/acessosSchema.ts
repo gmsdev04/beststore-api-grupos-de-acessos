@@ -1,12 +1,8 @@
 import * as mongoose from 'mongoose'
 
-const acessosSchema  = new mongoose.Schema({
-    cockpitPath: String,
-    chave: String,
-    nome: String,
-    descricao : String,
-    ativo: Boolean
+const grupoDeAcessosSchema  = new mongoose.Schema({
+    gruposDeAcessos:[]
 
-},{ collection: 'acessos', versionKey: false });
+},{ collection: 'lojas', versionKey: false });
 
-export default acessosSchema;
+export default grupoDeAcessosSchema;
